@@ -111,23 +111,17 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management",
-      "camera",
-      "vault",
-      "cloud",
-      "properties"
+      "user-management"
     ]
   },
   "features": {
-    "showCameraView": true,
+    "showCameraView": false,
     "showUserManagement": true,
-    "showVault": true,
-    "showCloud": true,
-    "showProperties": true,
+    "showVault": false,
+    "showCloud": false,
+    "showProperties": false,
     "enableNotifications": true,
-    "enableSearch": true,
-    "enablePlayback": true,
-    "enableCameraAlerts": true
+    "enableSearch": true
   },
   "ui": {
     "showStatusBar": false,
@@ -136,27 +130,21 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757364946138",
-    "createdAt": "2025-09-08T20:55:46.140Z",
+    "id": "user-1757365557518",
+    "createdAt": "2025-09-08T21:05:57.520Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
-        "user-management",
-        "camera",
-        "vault",
-        "cloud",
-        "properties"
+        "user-management"
       ],
       "features": [
-        "Camera View",
-        "Playback",
-        "Camera Alerts"
+        "Motion Detection",
+        "Night Vision",
+        "Cloud Storage"
       ],
       "additionalFeatures": [
-        "Vault",
-        "Advanced Analytics",
-        "Custom Dashboards"
+        "Vault"
       ]
     }
   }
