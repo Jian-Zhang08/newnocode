@@ -122,7 +122,8 @@
     "showCloud": false,
     "showProperties": false,
     "enableNotifications": true,
-    "enableSearch": true
+    "enableSearch": true,
+    "enablePlayback": true
   },
   "ui": {
     "showStatusBar": false,
@@ -131,8 +132,8 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757366464495",
-    "createdAt": "2025-09-08T21:21:04.496Z",
+    "id": "user-1757366807519",
+    "createdAt": "2025-09-08T21:26:47.520Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
@@ -141,7 +142,8 @@
         "camera"
       ],
       "features": [
-        "Camera View"
+        "Camera View",
+        "Playback"
       ],
       "additionalFeatures": [
         "Vault"
