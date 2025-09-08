@@ -111,11 +111,12 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management"
+      "user-management",
+      "camera"
     ]
   },
   "features": {
-    "showCameraView": false,
+    "showCameraView": true,
     "showUserManagement": true,
     "showVault": false,
     "showCloud": false,
@@ -130,18 +131,17 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757365557518",
-    "createdAt": "2025-09-08T21:05:57.520Z",
+    "id": "user-1757366464495",
+    "createdAt": "2025-09-08T21:21:04.496Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
-        "user-management"
+        "user-management",
+        "camera"
       ],
       "features": [
-        "Motion Detection",
-        "Night Vision",
-        "Cloud Storage"
+        "Camera View"
       ],
       "additionalFeatures": [
         "Vault"
