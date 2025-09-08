@@ -1,0 +1,313 @@
+/* My Account Page Styles - Exact Match to Design */
+.my-account {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Status Bar */
+.my-account-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: transparent;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    height: 44px;
+}
+
+.my-account-status-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.my-account-status-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.my-account-time {
+    font-weight: 600;
+}
+
+.my-account-bell {
+    font-size: 16px;
+}
+
+.my-account-signal,
+.my-account-wifi,
+.my-account-battery {
+    font-size: 14px;
+}
+
+/* Header */
+.my-account-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.my-account-back-btn {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.my-account-back-btn:hover {
+    color: #007AFF;
+}
+
+.my-account-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+.my-account-spacer {
+    width: 24px;
+}
+
+/* User Profile Section */
+.my-account-profile {
+    background: white;
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.my-account-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+}
+
+.my-account-avatar-icon {
+    font-size: 32px;
+    color: #999;
+}
+
+.my-account-username {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.my-account-email {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Quick Access Features */
+.my-account-quick-access {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.my-account-quick-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.my-account-quick-item:hover {
+    transform: translateY(-2px);
+}
+
+.my-account-quick-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #007AFF;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.my-account-quick-text {
+    font-size: 12px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Account Sections */
+.my-account-section {
+    background: white;
+    margin-bottom: 16px;
+    border-radius: 0;
+}
+
+.my-account-option {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.my-account-option:last-child {
+    border-bottom: none;
+}
+
+.my-account-option:hover {
+    background-color: #f8f8f8;
+}
+
+.my-account-option-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-right: 16px;
+}
+
+.my-account-option-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+}
+
+.my-account-option-arrow {
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .my-account-header {
+        padding: 12px 16px;
+    }
+
+    .my-account-title {
+        font-size: 16px;
+    }
+
+    .my-account-profile {
+        padding: 24px 16px;
+    }
+
+    .my-account-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .my-account-avatar-icon {
+        font-size: 28px;
+    }
+
+    .my-account-username {
+        font-size: 18px;
+    }
+
+    .my-account-email {
+        font-size: 13px;
+    }
+
+    .my-account-quick-access {
+        padding: 16px;
+    }
+
+    .my-account-quick-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .my-account-quick-text {
+        font-size: 11px;
+    }
+
+    .my-account-option {
+        padding: 14px 16px;
+    }
+
+    .my-account-option-text {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-account-header {
+        padding: 10px 12px;
+    }
+
+    .my-account-title {
+        font-size: 15px;
+    }
+
+    .my-account-profile {
+        padding: 20px 12px;
+    }
+
+    .my-account-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .my-account-avatar-icon {
+        font-size: 24px;
+    }
+
+    .my-account-username {
+        font-size: 16px;
+    }
+
+    .my-account-email {
+        font-size: 12px;
+    }
+
+    .my-account-quick-access {
+        padding: 12px;
+    }
+
+    .my-account-quick-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .my-account-quick-text {
+        font-size: 10px;
+    }
+
+    .my-account-option {
+        padding: 12px;
+    }
+
+    .my-account-option-text {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,242 @@
+/* Config Editor Styles */
+.config-editor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.config-editor {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.config-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    border-radius: 12px 12px 0 0;
+}
+
+.config-editor-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.config-editor-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.config-editor-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.config-editor-content {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.config-section {
+    margin-bottom: 2rem;
+}
+
+.config-section h3 {
+    color: #333;
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.config-field {
+    margin-bottom: 1rem;
+}
+
+.config-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.config-field input[type="text"],
+.config-field input[type="color"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.config-field input[type="color"] {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.config-field input:focus {
+    outline: none;
+    border-color: var(--primary-color, #4A90E2);
+}
+
+.config-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.config-module {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: border-color 0.3s;
+}
+
+.config-module:hover {
+    border-color: var(--primary-color, #4A90E2);
+}
+
+.config-module-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.config-module-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.config-module-icon {
+    font-size: 1.25rem;
+}
+
+.config-module-name {
+    flex: 1;
+    color: #333;
+}
+
+.config-module-required {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+.config-module-description {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding-left: 2.5rem;
+}
+
+.config-editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    border-radius: 0 0 12px 12px;
+}
+
+.config-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.config-btn-primary {
+    background: var(--primary-color, #4A90E2);
+    color: white;
+}
+
+.config-btn-primary:hover {
+    background: color-mix(in srgb, var(--primary-color, #4A90E2) 80%, black);
+    transform: translateY(-1px);
+}
+
+.config-btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.config-btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .config-editor-overlay {
+        padding: 0.5rem;
+    }
+
+    .config-editor {
+        max-width: 100%;
+    }
+
+    .config-editor-header {
+        padding: 1rem;
+    }
+
+    .config-editor-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .config-editor-content {
+        padding: 1rem;
+    }
+
+    .config-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .config-editor-actions {
+        padding: 1rem;
+        flex-direction: column;
+    }
+
+    .config-btn {
+        width: 100%;
+    }
+}

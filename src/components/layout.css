@@ -1,0 +1,161 @@
+/* Layout Component Styles */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.layout-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.layout-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.layout-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.layout-user-name {
+    font-size: 0.9rem;
+}
+
+.layout-logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.layout-logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.layout-nav {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.layout-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    min-width: 80px;
+}
+
+.layout-nav-item:hover {
+    background-color: #ecf0f1;
+    color: #3498db;
+}
+
+.layout-nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.layout-nav-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.layout-main {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .layout-header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .layout-title {
+        font-size: 1.25rem;
+    }
+
+    .layout-user-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .layout-nav {
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .layout-nav-item {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+
+    .layout-nav-icon {
+        font-size: 1.25rem;
+    }
+
+    .layout-nav-text {
+        font-size: 0.7rem;
+    }
+
+    .layout-main {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .layout-header {
+        padding: 0.75rem;
+    }
+
+    .layout-title {
+        font-size: 1.1rem;
+    }
+
+    .layout-nav {
+        gap: 0.5rem;
+    }
+
+    .layout-nav-item {
+        min-width: 50px;
+        padding: 0.25rem;
+    }
+
+    .layout-main {
+        padding: 0.35rem;
+    }
+}
