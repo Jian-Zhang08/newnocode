@@ -111,8 +111,7 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management",
-      "camera"
+      "user-management"
     ]
   },
   "features": {
@@ -124,6 +123,27 @@
     "enableNotifications": true,
     "enableSearch": true
   },
+  "video": {
+    "defaultStreams": [
+      {
+        "id": "demo-hls",
+        "name": "Demo HLS Stream",
+        "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+        "type": "hls",
+        "enabled": true,
+        "autoLoad": true
+      }
+    ],
+    "currentStream": "",
+    "settings": {
+      "autoPlay": true,
+      "muted": true,
+      "showControls": true,
+      "enableReconnect": true,
+      "maxRetries": 3,
+      "retryDelay": 2000
+    }
+  },
   "ui": {
     "showStatusBar": false,
     "showNavigationIcons": true,
@@ -131,26 +151,25 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757447204966",
-    "createdAt": "2025-09-09T19:46:44.967Z",
+    "id": "user-1757448125120",
+    "createdAt": "2025-09-09T20:02:05.121Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
-        "user-management",
-        "camera"
+        "user-management"
       ],
       "features": [
-        "Mobile Notifications"
+        "Camera View"
       ],
       "additionalFeatures": [
-        "API Integration"
+        "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#00050a",
-        "secondaryColor": "#c78d7a",
-        "backgroundColor": "#d7cbcb",
-        "textColor": "#d19e9e",
+        "primaryColor": "#222d3a",
+        "secondaryColor": "#2c3e50",
+        "backgroundColor": "#f5f5f5",
+        "textColor": "#333333",
         "showStatusBar": false,
         "showNavigationIcons": true,
         "mobileFirst": true,
@@ -160,12 +179,6 @@
         "useBuiltIn": true,
         "url": "",
         "anonKey": ""
-      },
-      "cameraConfig": {
-        "selectedStream": "demo-hls",
-        "autoPlay": true,
-        "muted": true,
-        "showControls": true
       }
     }
   }
