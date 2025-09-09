@@ -110,39 +110,18 @@
     ],
     "selected": [
       "dashboard",
-      "camera",
+      "dashboard",
       "user-management"
     ]
   },
   "features": {
-    "showCameraView": true,
+    "showCameraView": false,
     "showUserManagement": true,
     "showVault": false,
     "showCloud": false,
     "showProperties": false,
     "enableNotifications": true,
     "enableSearch": true
-  },
-  "video": {
-    "defaultStreams": [
-      {
-        "id": "demo-hls",
-        "name": "Demo HLS Stream",
-        "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
-        "type": "hls",
-        "enabled": true,
-        "autoLoad": true
-      }
-    ],
-    "currentStream": "demo-hls",
-    "settings": {
-      "autoPlay": true,
-      "muted": true,
-      "showControls": true,
-      "enableReconnect": true,
-      "maxRetries": 3,
-      "retryDelay": 2000
-    }
   },
   "ui": {
     "showStatusBar": false,
@@ -151,23 +130,22 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757429266770",
-    "createdAt": "2025-09-09T14:47:46.771Z",
+    "id": "user-1757446484795",
+    "createdAt": "2025-09-09T19:34:44.796Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
-        "camera",
         "user-management"
       ],
       "features": [
-        "Camera View"
+        "Mobile Notifications"
       ],
       "additionalFeatures": [
         "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#171e26",
+        "primaryColor": "#0e0f11",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
@@ -177,9 +155,9 @@
         "showPoweredBy": true
       },
       "supabaseConfig": {
-        "useBuiltIn": false,
-        "url": "https://ytpkupwzbydjdemipqpy.supabase.co",
-        "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0cGt1cHd6YnlkamRlbWlwcXB5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MjgyOTksImV4cCI6MjA3MzAwNDI5OX0.07AzzNKf_YM5W7aYrm9O37OiH7YM2dTDcxgHZKHKgkQ"
+        "useBuiltIn": true,
+        "url": "",
+        "anonKey": ""
       }
     }
   }
