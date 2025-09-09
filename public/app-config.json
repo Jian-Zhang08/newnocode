@@ -1,12 +1,12 @@
 {
   "app": {
-    "name": "aaa",
+    "name": "Smartz",
     "version": "1.0.0",
     "description": "Smart Home Management System"
   },
   "company": {
-    "name": "aaa",
-    "displayName": "aaa",
+    "name": "Smartz",
+    "displayName": "Smartz",
     "poweredBy": "NewNoCode Platform"
   },
   "theme": {
@@ -111,12 +111,12 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management"
+      "camera"
     ]
   },
   "features": {
     "showCameraView": true,
-    "showUserManagement": true,
+    "showUserManagement": false,
     "showVault": false,
     "showCloud": false,
     "showProperties": false,
@@ -134,7 +134,7 @@
         "autoLoad": true
       }
     ],
-    "currentStream": "",
+    "currentStream": "demo-hls",
     "settings": {
       "autoPlay": true,
       "muted": true,
@@ -151,13 +151,13 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757454627610",
-    "createdAt": "2025-09-09T21:50:27.611Z",
+    "id": "user-1757454783201",
+    "createdAt": "2025-09-09T21:53:03.203Z",
     "selections": {
-      "appName": "aaa",
+      "appName": "Smartz",
       "modules": [
         "dashboard",
-        "user-management"
+        "camera"
       ],
       "features": [
         "Camera View"
@@ -166,7 +166,7 @@
         "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#090f15",
+        "primaryColor": "#b98922",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
@@ -175,10 +175,11 @@
         "mobileFirst": true,
         "showPoweredBy": true
       },
-      "supabaseConfig": {
-        "useBuiltIn": true,
-        "url": "",
-        "anonKey": ""
+      "cameraConfig": {
+        "selectedStream": "demo-hls",
+        "autoPlay": true,
+        "muted": true,
+        "showControls": false
       }
     }
   }
