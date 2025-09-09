@@ -391,3 +391,56 @@
         min-height: 80px;
     }
 }
+
+/* Camera Section Styles */
+.smartz-camera-section {
+    margin-bottom: 20px;
+}
+
+.smartz-cameras-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.smartz-add-more-device-btn {
+    background: var(--primary-color, #4A90E2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: center;
+    margin-top: 8px;
+}
+
+.smartz-add-more-device-btn:hover {
+    background: var(--secondary-color, #2c3e50);
+    transform: translateY(-1px);
+}
+
+/* Mobile responsiveness for camera section */
+@media (max-width: 768px) {
+    .smartz-cameras-container {
+        gap: 12px;
+    }
+
+    .smartz-add-more-device-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smartz-cameras-container {
+        gap: 10px;
+    }
+
+    .smartz-add-more-device-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}

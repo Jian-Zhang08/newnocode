@@ -37,33 +37,30 @@ const initializeSupabase = async () => {
         } else {
             console.warn('Supabase configuration not properly set in app-config.json');
         }
-    } else {
-        console.warn('Supabase configuration not found in app-config.json');
+
+        // Fallback to environment variables if config is not available
+        const envUrl = import.meta.env.VITE_SUPABASE_URL;
+        const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+        if (envUrl && envKey) {
+            supabase = createClient(envUrl, envKey, {
+                auth: {
+                    autoRefreshToken: true,
+                    persistSession: true,
+                    detectSessionInUrl: true
+                }
+            });
+            console.log('Supabase initialized with environment variables');
+            return supabase;
+        }
+
+        console.error('Supabase configuration not found in app-config.json or environment variables');
+        return null;
+
+    } catch (error) {
+        console.error('Failed to initialize Supabase:', error);
+        return null;
     }
-
-    // Fallback to environment variables if config is not available
-    const envUrl = import.meta.env.VITE_SUPABASE_URL;
-    const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-    if (envUrl && envKey) {
-        supabase = createClient(envUrl, envKey, {
-            auth: {
-                autoRefreshToken: true,
-                persistSession: true,
-                detectSessionInUrl: true
-            }
-        });
-        console.log('Supabase initialized with environment variables');
-        return supabase;
-    }
-
-    console.error('Supabase configuration not found in app-config.json or environment variables');
-    return null;
-
-} catch (error) {
-    console.error('Failed to initialize Supabase:', error);
-    return null;
-}
 };
 
 // Get or initialize Supabase client

@@ -1,11 +1,68 @@
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useConfig } from '../contexts/ConfigContext';
 import { Link } from 'react-router-dom';
+import AddDeviceModal from '../components/AddDeviceModal';
+import CameraPlayer from '../components/CameraPlayer';
+import LiveStreamPlayer from '../components/LiveStreamPlayer';
 import './dashboard.css';
 
 function Dashboard() {
     const { user, logout } = useAuth();
     const { config, isModuleEnabled } = useConfig();
+
+    // Camera state
+    const [showAddDeviceModal, setShowAddDeviceModal] = useState(false);
+    const [devices, setDevices] = useState([]);
+
+    // Load current stream from config on component mount
+    useEffect(() => {
+        if (config?.video?.currentStream && config?.video?.defaultStreams) {
+            const currentStreamId = config.video.currentStream;
+            const currentStream = config.video.defaultStreams.find(stream =>
+                stream.id === currentStreamId && stream.enabled
+            );
+
+            if (currentStream) {
+                const defaultDevice = {
+                    id: currentStream.id,
+                    type: 'livestream',
+                    streamUrl: currentStream.url,
+                    streamType: currentStream.type,
+                    deviceId: currentStream.id,
+                    name: currentStream.name,
+                    addedAt: new Date().toISOString(),
+                    isDefault: true
+                };
+
+                setDevices([defaultDevice]);
+                console.log('Loaded current stream from config:', defaultDevice);
+            }
+        }
+    }, [config]);
+
+    // Handle adding a new device
+    const handleAddDevice = async (deviceData) => {
+        const newDevice = {
+            id: Date.now().toString(),
+            ...deviceData,
+            addedAt: new Date().toISOString()
+        };
+
+        setDevices(prev => [...prev, newDevice]);
+        console.log('Added device:', newDevice);
+    };
+
+    // Handle removing a device
+    const handleRemoveDevice = (deviceId) => {
+        setDevices(prev => prev.filter(device => device.id !== deviceId));
+    };
+
+    // Handle device error
+    const handleDeviceError = (error) => {
+        console.error('Device error:', error);
+        // You could show a toast notification here
+    };
 
     return (
         <div className="smartz-dashboard">
@@ -20,14 +77,57 @@ function Dashboard() {
 
             {/* Main Content */}
             <div className="smartz-content">
-                {/* Camera/Devices Card - Only show if camera module is enabled */}
+                {/* Camera/Devices Section - Only show if camera module is enabled */}
                 {isModuleEnabled('camera') && (
-                    <div className="smartz-devices-card">
-                        <div className="smartz-empty-icon">📁</div>
-                        <p className="smartz-empty-text">
-                            There are no devices yet. Please click the button below to add your smart devices.
-                        </p>
-                        <button className="smartz-add-device-btn">+ Add Device</button>
+                    <div className="smartz-camera-section">
+                        {devices.length === 0 ? (
+                            <div className="smartz-devices-card">
+                                <div className="smartz-empty-icon">📁</div>
+                                <p className="smartz-empty-text">
+                                    There are no devices yet. Please click the button below to add your smart devices.
+                                </p>
+                                <button
+                                    className="smartz-add-device-btn"
+                                    onClick={() => setShowAddDeviceModal(true)}
+                                >
+                                    + Add Device
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="smartz-cameras-container">
+                                {devices.map(device => {
+                                    if (device.type === 'camera') {
+                                        return (
+                                            <CameraPlayer
+                                                key={device.id}
+                                                deviceId={device.deviceId}
+                                                onError={handleDeviceError}
+                                                onRemove={() => handleRemoveDevice(device.id)}
+                                            />
+                                        );
+                                    } else if (device.type === 'livestream') {
+                                        return (
+                                            <LiveStreamPlayer
+                                                key={device.id}
+                                                streamUrl={device.streamUrl}
+                                                streamType={device.streamType}
+                                                deviceId={device.deviceId}
+                                                title={device.name || (device.deviceId ? `Live Stream ${device.deviceId}` : 'Live Stream')}
+                                                onError={handleDeviceError}
+                                                onRemove={device.isDefault ? undefined : () => handleRemoveDevice(device.id)}
+                                            />
+                                        );
+                                    }
+                                    return null;
+                                })}
+                                <button
+                                    className="smartz-add-more-device-btn"
+                                    onClick={() => setShowAddDeviceModal(true)}
+                                >
+                                    + Add More Devices
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
 
@@ -110,6 +210,13 @@ function Dashboard() {
                 </p>
                 <div className="smartz-home-indicator"></div>
             </div>
+
+            {/* Add Device Modal */}
+            <AddDeviceModal
+                isOpen={showAddDeviceModal}
+                onClose={() => setShowAddDeviceModal(false)}
+                onConfirm={handleAddDevice}
+            />
         </div>
     );
 }

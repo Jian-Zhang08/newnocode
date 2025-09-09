@@ -10,11 +10,10 @@ function Login() {
         email: 'a295590858@gmail.com',
         password: ''
     });
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    const { login } = useAuth();
+    const { login, authLoading } = useAuth();
     const { config } = useConfig();
     const navigate = useNavigate();
 
@@ -28,19 +27,16 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
         setError('');
 
         // Basic validation
         if (!formData.email || !formData.password) {
             setError('Please fill in all fields');
-            setLoading(false);
             return;
         }
 
         if (!formData.email.includes('@')) {
             setError('Please enter a valid email address');
-            setLoading(false);
             return;
         }
 
@@ -51,8 +47,6 @@ function Login() {
         } else {
             setError(result.error || 'Login failed');
         }
-
-        setLoading(false);
     };
 
     return (
@@ -130,9 +124,9 @@ function Login() {
                     <button
                         type="submit"
                         className="smartz-login-button"
-                        disabled={loading}
+                        disabled={authLoading}
                     >
-                        {loading ? 'Logging in...' : 'Login'}
+                        {authLoading ? 'Logging in...' : 'Login'}
                     </button>
                 </form>
 

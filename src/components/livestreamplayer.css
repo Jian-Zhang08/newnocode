@@ -1,0 +1,308 @@
+/* Live Stream Player Styles */
+.smartz-livestream-player {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-color, #4A90E2);
+}
+
+.smartz-livestream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--primary-color, #4A90E2);
+    color: white;
+}
+
+.smartz-livestream-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.smartz-livestream-icon {
+    font-size: 20px;
+}
+
+.smartz-livestream-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.smartz-livestream-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.smartz-livestream-type {
+    font-size: 12px;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.smartz-livestream-remove {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.smartz-livestream-remove:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.smartz-livestream-video-container {
+    position: relative;
+    background: #000;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smartz-livestream-video {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    background: #000;
+}
+
+.smartz-livestream-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.smartz-livestream-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: smartz-livestream-spin 1s linear infinite;
+}
+
+@keyframes smartz-livestream-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.smartz-livestream-loading p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.smartz-livestream-loading-details {
+    font-size: 12px !important;
+    opacity: 0.6 !important;
+}
+
+.smartz-livestream-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.smartz-livestream-error-icon {
+    font-size: 32px;
+}
+
+.smartz-livestream-error-message {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+    max-width: 280px;
+    line-height: 1.4;
+}
+
+.smartz-livestream-error-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.smartz-livestream-retry,
+.smartz-livestream-reconnect {
+    background: var(--primary-color, #4A90E2);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.smartz-livestream-retry:hover,
+.smartz-livestream-reconnect:hover {
+    background: var(--secondary-color, #2c3e50);
+    transform: translateY(-1px);
+}
+
+.smartz-livestream-reconnect {
+    background: #10b981;
+}
+
+.smartz-livestream-reconnect:hover {
+    background: #059669;
+}
+
+.smartz-livestream-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.smartz-livestream-control-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.smartz-livestream-control-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* Live indicator */
+.smartz-livestream-video-container::before {
+    content: 'LIVE';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ef4444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 10;
+    animation: smartz-livestream-pulse 2s infinite;
+}
+
+@keyframes smartz-livestream-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .smartz-livestream-header {
+        padding: 12px 16px;
+    }
+
+    .smartz-livestream-title {
+        font-size: 14px;
+    }
+
+    .smartz-livestream-type {
+        font-size: 11px;
+    }
+
+    .smartz-livestream-video-container {
+        min-height: 150px;
+    }
+
+    .smartz-livestream-video {
+        max-height: 250px;
+    }
+
+    .smartz-livestream-loading,
+    .smartz-livestream-error {
+        padding: 30px 16px;
+    }
+
+    .smartz-livestream-error-message {
+        font-size: 13px;
+        max-width: 240px;
+    }
+
+    .smartz-livestream-error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .smartz-livestream-retry,
+    .smartz-livestream-reconnect {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smartz-livestream-header {
+        padding: 10px 12px;
+    }
+
+    .smartz-livestream-icon {
+        font-size: 18px;
+    }
+
+    .smartz-livestream-title {
+        font-size: 13px;
+    }
+
+    .smartz-livestream-remove {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+    }
+
+    .smartz-livestream-video-container {
+        min-height: 120px;
+    }
+
+    .smartz-livestream-video {
+        max-height: 200px;
+    }
+}

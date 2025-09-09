@@ -110,7 +110,7 @@
     ],
     "selected": [
       "dashboard",
-      "dashboard",
+      "camera",
       "user-management"
     ]
   },
@@ -122,6 +122,27 @@
     "showProperties": false,
     "enableNotifications": true,
     "enableSearch": true
+  },
+  "video": {
+    "defaultStreams": [
+      {
+        "id": "demo-hls",
+        "name": "Demo HLS Stream",
+        "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+        "type": "hls",
+        "enabled": true,
+        "autoLoad": true
+      }
+    ],
+    "currentStream": "demo-hls",
+    "settings": {
+      "autoPlay": true,
+      "muted": true,
+      "showControls": true,
+      "enableReconnect": true,
+      "maxRetries": 3,
+      "retryDelay": 2000
+    }
   },
   "ui": {
     "showStatusBar": false,
@@ -136,6 +157,7 @@
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
+        "camera",
         "user-management"
       ],
       "features": [
