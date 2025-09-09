@@ -123,8 +123,7 @@
     "showProperties": false,
     "enableNotifications": true,
     "enableSearch": true,
-    "enablePlayback": true,
-    "enableCameraAlerts": true
+    "enablePlayback": true
   },
   "ui": {
     "showStatusBar": false,
@@ -133,8 +132,8 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757366854261",
-    "createdAt": "2025-09-08T21:27:34.262Z",
+    "id": "user-1757384861945",
+    "createdAt": "2025-09-09T02:27:41.946Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
@@ -144,12 +143,22 @@
       ],
       "features": [
         "Camera View",
-        "Playback",
-        "Camera Alerts"
+        "Playback"
       ],
       "additionalFeatures": [
-        "Vault"
-      ]
+        "Vault",
+        "Advanced Analytics"
+      ],
+      "uiSettings": {
+        "primaryColor": "#af17d9",
+        "secondaryColor": "#0880f7",
+        "backgroundColor": "#e60a0a",
+        "textColor": "#c72929",
+        "showStatusBar": false,
+        "showNavigationIcons": true,
+        "mobileFirst": true,
+        "showPoweredBy": true
+      }
     }
   }
 }
