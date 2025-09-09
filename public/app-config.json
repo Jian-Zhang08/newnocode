@@ -4,6 +4,11 @@
         "version": "1.0.0",
         "description": "Smart Home Management System"
     },
+    "supabase": {
+        "url": "",
+        "anonKey": "",
+        "enabled": true
+    },
     "company": {
         "name": "Smartz",
         "displayName": "Smartz test",

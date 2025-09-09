@@ -1,13 +1,72 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Replace these with your actual Supabase project URL and anon key
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key'
+let supabase = null;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-    auth: {
-        autoRefreshToken: true,
-        persistSession: true,
-        detectSessionInUrl: true
+// Initialize Supabase client with configuration
+const initializeSupabase = async () => {
+    try {
+        // Load configuration from app-config.json
+        const response = await fetch('/app-config.json');
+        const config = await response.json();
+
+        if (config.supabase && config.supabase.enabled) {
+            const supabaseUrl = config.supabase.url;
+            const supabaseAnonKey = config.supabase.anonKey;
+
+            // Validate configuration
+            if (supabaseUrl && supabaseAnonKey &&
+                supabaseUrl !== 'https://your-project-id.supabase.co' &&
+                supabaseAnonKey !== 'your-anon-key-here') {
+
+                supabase = createClient(supabaseUrl, supabaseAnonKey, {
+                    auth: {
+                        autoRefreshToken: true,
+                        persistSession: true,
+                        detectSessionInUrl: true
+                    }
+                });
+
+                console.log('Supabase initialized with config:', supabaseUrl);
+                return supabase;
+            } else {
+                console.warn('Supabase configuration not properly set in app-config.json');
+            }
+        } else {
+            console.warn('Supabase is disabled in app-config.json');
+        }
+
+        // Fallback to environment variables if config is not available
+        const envUrl = import.meta.env.VITE_SUPABASE_URL;
+        const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+        if (envUrl && envKey) {
+            supabase = createClient(envUrl, envKey, {
+                auth: {
+                    autoRefreshToken: true,
+                    persistSession: true,
+                    detectSessionInUrl: true
+                }
+            });
+            console.log('Supabase initialized with environment variables');
+            return supabase;
+        }
+
+        console.error('Supabase configuration not found in app-config.json or environment variables');
+        return null;
+
+    } catch (error) {
+        console.error('Failed to initialize Supabase:', error);
+        return null;
     }
-})
+};
+
+// Get or initialize Supabase client
+export const getSupabase = async () => {
+    if (!supabase) {
+        supabase = await initializeSupabase();
+    }
+    return supabase;
+};
+
+// Export a default instance (will be null until initialized)
+export { supabase };

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 const AuthContext = createContext();
 
@@ -14,27 +14,49 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [supabase, setSupabase] = useState(null);
 
-    // Check for existing session on app load
+    // Initialize Supabase and check for existing session
     useEffect(() => {
-        // Get initial session
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setUser(session?.user ?? null);
-            setLoading(false);
-        });
+        const initAuth = async () => {
+            try {
+                const supabaseClient = await getSupabase();
+                setSupabase(supabaseClient);
 
-        // Listen for auth changes
-        const {
-            data: { subscription },
-        } = supabase.auth.onAuthStateChange((_event, session) => {
-            setUser(session?.user ?? null);
-            setLoading(false);
-        });
+                if (supabaseClient) {
+                    // Get initial session
+                    const { data: { session } } = await supabaseClient.auth.getSession();
+                    setUser(session?.user ?? null);
 
-        return () => subscription.unsubscribe();
+                    // Listen for auth changes
+                    const {
+                        data: { subscription },
+                    } = supabaseClient.auth.onAuthStateChange((_event, session) => {
+                        setUser(session?.user ?? null);
+                        setLoading(false);
+                    });
+
+                    setLoading(false);
+                    return () => subscription.unsubscribe();
+                } else {
+                    // Supabase not configured, use mock auth or disable auth
+                    console.warn('Supabase not configured. Authentication disabled.');
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.error('Failed to initialize auth:', error);
+                setLoading(false);
+            }
+        };
+
+        initAuth();
     }, []);
 
     const login = async (email, password) => {
+        if (!supabase) {
+            return { success: false, error: 'Authentication not configured' };
+        }
+
         try {
             setLoading(true);
             const { data, error } = await supabase.auth.signInWithPassword({
@@ -55,6 +77,10 @@ export function AuthProvider({ children }) {
     };
 
     const signup = async (name, email, password) => {
+        if (!supabase) {
+            return { success: false, error: 'Authentication not configured' };
+        }
+
         try {
             setLoading(true);
             const { data, error } = await supabase.auth.signUp({
@@ -80,6 +106,10 @@ export function AuthProvider({ children }) {
     };
 
     const resetPassword = async (email) => {
+        if (!supabase) {
+            return { success: false, error: 'Authentication not configured' };
+        }
+
         try {
             setLoading(true);
             const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -99,6 +129,11 @@ export function AuthProvider({ children }) {
     };
 
     const logout = async () => {
+        if (!supabase) {
+            console.warn('Authentication not configured');
+            return;
+        }
+
         try {
             setLoading(true);
             const { error } = await supabase.auth.signOut();

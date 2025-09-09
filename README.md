@@ -80,11 +80,21 @@ cd smartzTemplate
 npm install
 ```
 
-3. Set up Supabase:
+3. Set up Supabase (Optional):
    - Create a new project at [supabase.com](https://supabase.com)
    - Go to Settings > API in your Supabase dashboard
    - Copy your Project URL and anon public key
-   - Create a `.env.local` file in the root directory:
+   - Update the `public/app-config.json` file:
+   ```json
+   {
+     "supabase": {
+       "url": "https://your-project-id.supabase.co",
+       "anonKey": "your-anon-key-here",
+       "enabled": true
+     }
+   }
+   ```
+   - Alternatively, you can still use environment variables as fallback:
    ```bash
    VITE_SUPABASE_URL=https://your-project-id.supabase.co
    VITE_SUPABASE_ANON_KEY=your-anon-key-here

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import './auth.css';
 
 function ResetPassword() {
@@ -18,11 +18,17 @@ function ResetPassword() {
 
     useEffect(() => {
         // Check if user has a valid session for password reset
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            if (!session) {
-                navigate('/login');
+        const checkSession = async () => {
+            const supabase = await getSupabase();
+            if (supabase) {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (!session) {
+                    navigate('/login');
+                }
             }
-        });
+        };
+
+        checkSession();
     }, [navigate]);
 
     const handleChange = (e) => {
@@ -55,6 +61,13 @@ function ResetPassword() {
 
         try {
             setLoading(true);
+            const supabase = await getSupabase();
+
+            if (!supabase) {
+                setError('Authentication not configured');
+                return;
+            }
+
             const { error } = await supabase.auth.updateUser({
                 password: formData.password
             });
