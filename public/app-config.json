@@ -1,137 +1,164 @@
 {
-    "app": {
-        "name": "Smartz",
-        "version": "1.0.0",
-        "description": "Smart Home Management System"
-    },
-    "supabase": {
-        "url": "",
-        "anonKey": "",
-        "enabled": true
-    },
-    "company": {
-        "name": "Smartz",
-        "displayName": "Smartz test",
-        "poweredBy": "someone"
-    },
-    "theme": {
-        "primaryColor": "#4A90E2",
+  "app": {
+    "name": "Smartz",
+    "version": "1.0.0",
+    "description": "Smart Home Management System"
+  },
+  "company": {
+    "name": "Smartz",
+    "displayName": "My Smartz App",
+    "poweredBy": "NewNoCode Platform"
+  },
+  "theme": {
+    "primaryColor": "#4A90E2",
+    "secondaryColor": "#2c3e50",
+    "backgroundColor": "#f5f5f5",
+    "textColor": "#333333",
+    "logoStyle": "lowercase"
+  },
+  "modules": {
+    "available": [
+      {
+        "id": "user-management",
+        "name": "User Management",
+        "description": "User authentication, profiles, and account management",
+        "icon": "👤",
+        "routes": [
+          "/login",
+          "/signup",
+          "/forgot-password",
+          "/reset-password",
+          "/users"
+        ],
+        "components": [
+          "Login",
+          "Signup",
+          "ForgotPassword",
+          "ResetPassword",
+          "UserManagement"
+        ],
+        "required": false
+      },
+      {
+        "id": "camera",
+        "name": "Camera Module",
+        "description": "Camera monitoring and device management",
+        "icon": "📷",
+        "routes": [
+          "/cameras",
+          "/devices"
+        ],
+        "components": [
+          "CameraView",
+          "DeviceManagement"
+        ],
+        "required": false
+      },
+      {
+        "id": "vault",
+        "name": "Vault",
+        "description": "Secure storage and file management",
+        "icon": "🔐",
+        "routes": [
+          "/vault"
+        ],
+        "components": [
+          "Vault"
+        ],
+        "required": false
+      },
+      {
+        "id": "cloud",
+        "name": "Cloud Storage",
+        "description": "Cloud synchronization and backup",
+        "icon": "☁️",
+        "routes": [
+          "/cloud"
+        ],
+        "components": [
+          "CloudStorage"
+        ],
+        "required": false
+      },
+      {
+        "id": "properties",
+        "name": "Properties",
+        "description": "Property management and monitoring",
+        "icon": "🏢",
+        "routes": [
+          "/properties"
+        ],
+        "components": [
+          "Properties"
+        ],
+        "required": false
+      },
+      {
+        "id": "dashboard",
+        "name": "Dashboard",
+        "description": "Main dashboard and overview",
+        "icon": "🏠",
+        "routes": [
+          "/dashboard",
+          "/"
+        ],
+        "components": [
+          "Dashboard"
+        ],
+        "required": true
+      }
+    ],
+    "selected": [
+      "dashboard",
+      "dashboard",
+      "user-management"
+    ]
+  },
+  "features": {
+    "showCameraView": true,
+    "showUserManagement": true,
+    "showVault": false,
+    "showCloud": false,
+    "showProperties": false,
+    "enableNotifications": true,
+    "enableSearch": true
+  },
+  "ui": {
+    "showStatusBar": false,
+    "showNavigationIcons": true,
+    "mobileFirst": true,
+    "showPoweredBy": true
+  },
+  "user": {
+    "id": "user-1757429266770",
+    "createdAt": "2025-09-09T14:47:46.771Z",
+    "selections": {
+      "appName": "My Smartz App",
+      "modules": [
+        "dashboard",
+        "user-management"
+      ],
+      "features": [
+        "Camera View"
+      ],
+      "additionalFeatures": [
+        "Vault"
+      ],
+      "uiSettings": {
+        "primaryColor": "#171e26",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
-        "logoStyle": "lowercase"
-    },
-    "modules": {
-        "available": [
-            {
-                "id": "user-management",
-                "name": "User Management",
-                "description": "User authentication, profiles, and account management",
-                "icon": "👤",
-                "routes": [
-                    "/login",
-                    "/signup",
-                    "/forgot-password",
-                    "/reset-password",
-                    "/users"
-                ],
-                "components": [
-                    "Login",
-                    "Signup",
-                    "ForgotPassword",
-                    "ResetPassword",
-                    "UserManagement"
-                ],
-                "required": false
-            },
-            {
-                "id": "camera",
-                "name": "Camera Module",
-                "description": "Camera monitoring and device management",
-                "icon": "📷",
-                "routes": [
-                    "/cameras",
-                    "/devices"
-                ],
-                "components": [
-                    "CameraView",
-                    "DeviceManagement"
-                ],
-                "required": false
-            },
-            {
-                "id": "vault",
-                "name": "Vault",
-                "description": "Secure storage and file management",
-                "icon": "🔐",
-                "routes": [
-                    "/vault"
-                ],
-                "components": [
-                    "Vault"
-                ],
-                "required": false
-            },
-            {
-                "id": "cloud",
-                "name": "Cloud Storage",
-                "description": "Cloud synchronization and backup",
-                "icon": "☁️",
-                "routes": [
-                    "/cloud"
-                ],
-                "components": [
-                    "CloudStorage"
-                ],
-                "required": false
-            },
-            {
-                "id": "properties",
-                "name": "Properties",
-                "description": "Property management and monitoring",
-                "icon": "🏢",
-                "routes": [
-                    "/properties"
-                ],
-                "components": [
-                    "Properties"
-                ],
-                "required": false
-            },
-            {
-                "id": "dashboard",
-                "name": "Dashboard",
-                "description": "Main dashboard and overview",
-                "icon": "🏠",
-                "routes": [
-                    "/dashboard",
-                    "/"
-                ],
-                "components": [
-                    "Dashboard"
-                ],
-                "required": true
-            }
-        ],
-        "selected": [
-            "dashboard",
-            "user-management",
-            "camera"
-        ]
-    },
-    "features": {
-        "showCameraView": true,
-        "showUserManagement": true,
-        "showVault": false,
-        "showCloud": false,
-        "showProperties": false,
-        "enableNotifications": true,
-        "enableSearch": true
-    },
-    "ui": {
         "showStatusBar": false,
         "showNavigationIcons": true,
         "mobileFirst": true,
         "showPoweredBy": true
+      },
+      "supabaseConfig": {
+        "useBuiltIn": false,
+        "url": "https://ytpkupwzbydjdemipqpy.supabase.co",
+        "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0cGt1cHd6YnlkamRlbWlwcXB5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MjgyOTksImV4cCI6MjA3MzAwNDI5OX0.07AzzNKf_YM5W7aYrm9O37OiH7YM2dTDcxgHZKHKgkQ"
+      }
     }
+  }
 }
