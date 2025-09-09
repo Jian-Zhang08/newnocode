@@ -111,11 +111,12 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management"
+      "user-management",
+      "camera"
     ]
   },
   "features": {
-    "showCameraView": false,
+    "showCameraView": true,
     "showUserManagement": true,
     "showVault": false,
     "showCloud": false,
@@ -130,26 +131,27 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757446484795",
-    "createdAt": "2025-09-09T19:34:44.796Z",
+    "id": "user-1757447204966",
+    "createdAt": "2025-09-09T19:46:44.967Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
         "dashboard",
-        "user-management"
+        "user-management",
+        "camera"
       ],
       "features": [
         "Mobile Notifications"
       ],
       "additionalFeatures": [
-        "Vault"
+        "API Integration"
       ],
       "uiSettings": {
-        "primaryColor": "#0e0f11",
-        "secondaryColor": "#2c3e50",
-        "backgroundColor": "blue",
-        "textColor": "green",
-        "showStatusBar": true,
+        "primaryColor": "#00050a",
+        "secondaryColor": "#c78d7a",
+        "backgroundColor": "#d7cbcb",
+        "textColor": "#d19e9e",
+        "showStatusBar": false,
         "showNavigationIcons": true,
         "mobileFirst": true,
         "showPoweredBy": true
@@ -158,6 +160,12 @@
         "useBuiltIn": true,
         "url": "",
         "anonKey": ""
+      },
+      "cameraConfig": {
+        "selectedStream": "demo-hls",
+        "autoPlay": true,
+        "muted": true,
+        "showControls": true
       }
     }
   }
