@@ -1,12 +1,12 @@
 {
   "app": {
-    "name": "Smartz",
+    "name": "John",
     "version": "1.0.0",
     "description": "Smart Home Management System"
   },
   "company": {
-    "name": "Smartz",
-    "displayName": "jian",
+    "name": "John",
+    "displayName": "John",
     "poweredBy": "NewNoCode Platform"
   },
   "theme": {
@@ -122,8 +122,7 @@
     "showCloud": false,
     "showProperties": false,
     "enableNotifications": true,
-    "enableSearch": true,
-    "enablePlayback": true
+    "enableSearch": true
   },
   "video": {
     "defaultStreams": [
@@ -153,25 +152,23 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757448253622",
-    "createdAt": "2025-09-09T20:04:13.623Z",
+    "id": "user-1757449431618",
+    "createdAt": "2025-09-09T20:23:51.620Z",
     "selections": {
-      "appName": "jian",
+      "appName": "John",
       "modules": [
         "dashboard",
         "user-management",
         "camera"
       ],
       "features": [
-        "Camera View",
-        "Playback"
+        "Camera View"
       ],
       "additionalFeatures": [
-        "Vault",
-        "Advanced Analytics"
+        "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#d97c12",
+        "primaryColor": "#e7970d",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
@@ -189,7 +186,7 @@
         "selectedStream": "demo-hls",
         "autoPlay": true,
         "muted": true,
-        "showControls": true
+        "showControls": false
       }
     }
   }
