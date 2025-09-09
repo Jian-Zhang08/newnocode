@@ -122,8 +122,7 @@
     "showCloud": false,
     "showProperties": false,
     "enableNotifications": true,
-    "enableSearch": true,
-    "enablePlayback": true
+    "enableSearch": true
   },
   "ui": {
     "showStatusBar": false,
@@ -132,8 +131,8 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757384861945",
-    "createdAt": "2025-09-09T02:27:41.946Z",
+    "id": "user-1757428742114",
+    "createdAt": "2025-09-09T14:39:02.115Z",
     "selections": {
       "appName": "My Smartz App",
       "modules": [
@@ -142,22 +141,25 @@
         "camera"
       ],
       "features": [
-        "Camera View",
-        "Playback"
+        "Camera View"
       ],
       "additionalFeatures": [
-        "Vault",
-        "Advanced Analytics"
+        "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#af17d9",
-        "secondaryColor": "#0880f7",
-        "backgroundColor": "#e60a0a",
-        "textColor": "#c72929",
+        "primaryColor": "#4A90E2",
+        "secondaryColor": "#2c3e50",
+        "backgroundColor": "#f5f5f5",
+        "textColor": "#333333",
         "showStatusBar": false,
         "showNavigationIcons": true,
         "mobileFirst": true,
         "showPoweredBy": true
+      },
+      "supabaseConfig": {
+        "useBuiltIn": false,
+        "url": "https://ytpkupwzbydjdemipqpy.supabase.co",
+        "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0cGt1cHd6YnlkamRlbWlwcXB5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MjgyOTksImV4cCI6MjA3MzAwNDI5OX0.07AzzNKf_YM5W7aYrm9O37OiH7YM2dTDcxgHZKHKgkQ"
       }
     }
   }
