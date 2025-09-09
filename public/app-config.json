@@ -1,12 +1,12 @@
 {
   "app": {
-    "name": "John",
+    "name": "aaa",
     "version": "1.0.0",
     "description": "Smart Home Management System"
   },
   "company": {
-    "name": "John",
-    "displayName": "John",
+    "name": "aaa",
+    "displayName": "aaa",
     "poweredBy": "NewNoCode Platform"
   },
   "theme": {
@@ -111,8 +111,7 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management",
-      "camera"
+      "user-management"
     ]
   },
   "features": {
@@ -135,7 +134,7 @@
         "autoLoad": true
       }
     ],
-    "currentStream": "demo-hls",
+    "currentStream": "",
     "settings": {
       "autoPlay": true,
       "muted": true,
@@ -152,14 +151,13 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757449431618",
-    "createdAt": "2025-09-09T20:23:51.620Z",
+    "id": "user-1757454627610",
+    "createdAt": "2025-09-09T21:50:27.611Z",
     "selections": {
-      "appName": "John",
+      "appName": "aaa",
       "modules": [
         "dashboard",
-        "user-management",
-        "camera"
+        "user-management"
       ],
       "features": [
         "Camera View"
@@ -168,7 +166,7 @@
         "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#e7970d",
+        "primaryColor": "#090f15",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
@@ -181,12 +179,6 @@
         "useBuiltIn": true,
         "url": "",
         "anonKey": ""
-      },
-      "cameraConfig": {
-        "selectedStream": "demo-hls",
-        "autoPlay": true,
-        "muted": true,
-        "showControls": false
       }
     }
   }
