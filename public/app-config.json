@@ -6,7 +6,7 @@
   },
   "company": {
     "name": "Smartz",
-    "displayName": "My Smartz App",
+    "displayName": "jian",
     "poweredBy": "NewNoCode Platform"
   },
   "theme": {
@@ -111,7 +111,8 @@
     "selected": [
       "dashboard",
       "dashboard",
-      "user-management"
+      "user-management",
+      "camera"
     ]
   },
   "features": {
@@ -121,7 +122,8 @@
     "showCloud": false,
     "showProperties": false,
     "enableNotifications": true,
-    "enableSearch": true
+    "enableSearch": true,
+    "enablePlayback": true
   },
   "video": {
     "defaultStreams": [
@@ -134,7 +136,7 @@
         "autoLoad": true
       }
     ],
-    "currentStream": "",
+    "currentStream": "demo-hls",
     "settings": {
       "autoPlay": true,
       "muted": true,
@@ -151,22 +153,25 @@
     "showPoweredBy": true
   },
   "user": {
-    "id": "user-1757448125120",
-    "createdAt": "2025-09-09T20:02:05.121Z",
+    "id": "user-1757448253622",
+    "createdAt": "2025-09-09T20:04:13.623Z",
     "selections": {
-      "appName": "My Smartz App",
+      "appName": "jian",
       "modules": [
         "dashboard",
-        "user-management"
+        "user-management",
+        "camera"
       ],
       "features": [
-        "Camera View"
+        "Camera View",
+        "Playback"
       ],
       "additionalFeatures": [
-        "Vault"
+        "Vault",
+        "Advanced Analytics"
       ],
       "uiSettings": {
-        "primaryColor": "#222d3a",
+        "primaryColor": "#d97c12",
         "secondaryColor": "#2c3e50",
         "backgroundColor": "#f5f5f5",
         "textColor": "#333333",
@@ -179,6 +184,12 @@
         "useBuiltIn": true,
         "url": "",
         "anonKey": ""
+      },
+      "cameraConfig": {
+        "selectedStream": "demo-hls",
+        "autoPlay": true,
+        "muted": true,
+        "showControls": true
       }
     }
   }
