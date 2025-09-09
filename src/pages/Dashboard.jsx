@@ -205,7 +205,7 @@ function Dashboard() {
 
             {/* Footer */}
             <div className="smartz-footer">
-                <p className="smartz-powered-by">
+                <p className="smartz-powered-by" style={{ display: 'var(--show-powered-by, block)' }}>
                     Powered by {config?.company?.poweredBy || 'Aedify'}
                 </p>
                 <div className="smartz-home-indicator"></div>

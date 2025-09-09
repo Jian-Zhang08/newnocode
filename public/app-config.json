@@ -167,11 +167,11 @@
         "Vault"
       ],
       "uiSettings": {
-        "primaryColor": "#171e26",
+        "primaryColor": "red",
         "secondaryColor": "#2c3e50",
-        "backgroundColor": "#f5f5f5",
-        "textColor": "#333333",
-        "showStatusBar": false,
+        "backgroundColor": "blue",
+        "textColor": "green",
+        "showStatusBar": true,
         "showNavigationIcons": true,
         "mobileFirst": true,
         "showPoweredBy": true

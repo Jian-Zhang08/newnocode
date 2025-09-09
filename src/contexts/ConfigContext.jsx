@@ -28,6 +28,11 @@ export function ConfigProvider({ children }) {
             if (configData.theme) {
                 applyTheme(configData.theme);
             }
+
+            // Also apply user UI settings if they exist
+            if (configData.user?.selections?.uiSettings) {
+                applyTheme(configData.user.selections.uiSettings);
+            }
         } catch (error) {
             console.error('Failed to load app configuration:', error);
             // Fallback to default config
@@ -39,10 +44,31 @@ export function ConfigProvider({ children }) {
 
     const applyTheme = (theme) => {
         const root = document.documentElement;
-        root.style.setProperty('--primary-color', theme.primaryColor);
-        root.style.setProperty('--secondary-color', theme.secondaryColor);
-        root.style.setProperty('--background-color', theme.backgroundColor);
-        root.style.setProperty('--text-color', theme.textColor);
+
+        // Apply color theme
+        if (theme.primaryColor) {
+            root.style.setProperty('--primary-color', theme.primaryColor);
+        }
+        if (theme.secondaryColor) {
+            root.style.setProperty('--secondary-color', theme.secondaryColor);
+        }
+        if (theme.backgroundColor) {
+            root.style.setProperty('--background-color', theme.backgroundColor);
+        }
+        if (theme.textColor) {
+            root.style.setProperty('--text-color', theme.textColor);
+        }
+
+        // Apply UI settings as CSS custom properties
+        if (theme.showStatusBar !== undefined) {
+            root.style.setProperty('--show-status-bar', theme.showStatusBar ? 'block' : 'none');
+        }
+        if (theme.showNavigationIcons !== undefined) {
+            root.style.setProperty('--show-navigation-icons', theme.showNavigationIcons ? 'block' : 'none');
+        }
+        if (theme.showPoweredBy !== undefined) {
+            root.style.setProperty('--show-powered-by', theme.showPoweredBy ? 'block' : 'none');
+        }
     };
 
     const getDefaultConfig = () => ({

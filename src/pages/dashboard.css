@@ -10,7 +10,7 @@
 
 /* Status Bar */
 .smartz-status-bar {
-    display: flex;
+    display: var(--show-status-bar, none);
     justify-content: space-between;
     align-items: center;
     padding: 8px 16px;
@@ -161,6 +161,7 @@
 .smartz-nav-icon {
     font-size: 24px;
     margin-bottom: 4px;
+    display: var(--show-navigation-icons, block);
 }
 
 .smartz-nav-text {
