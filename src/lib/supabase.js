@@ -9,55 +9,61 @@ const initializeSupabase = async () => {
         const response = await fetch('/app-config.json');
         const config = await response.json();
 
-        if (config.supabase && config.supabase.enabled) {
-            const supabaseUrl = config.supabase.url;
-            const supabaseAnonKey = config.supabase.anonKey;
+        // Check for Supabase config in the new structure first
+        let supabaseUrl, supabaseAnonKey;
 
-            // Validate configuration
-            if (supabaseUrl && supabaseAnonKey &&
-                supabaseUrl !== 'https://your-project-id.supabase.co' &&
-                supabaseAnonKey !== 'your-anon-key-here') {
-
-                supabase = createClient(supabaseUrl, supabaseAnonKey, {
-                    auth: {
-                        autoRefreshToken: true,
-                        persistSession: true,
-                        detectSessionInUrl: true
-                    }
-                });
-
-                console.log('Supabase initialized with config:', supabaseUrl);
-                return supabase;
-            } else {
-                console.warn('Supabase configuration not properly set in app-config.json');
-            }
-        } else {
-            console.warn('Supabase is disabled in app-config.json');
+        if (config.user?.selections?.supabaseConfig && !config.user.selections.supabaseConfig.useBuiltIn) {
+            supabaseUrl = config.user.selections.supabaseConfig.url;
+            supabaseAnonKey = config.user.selections.supabaseConfig.anonKey;
+        } else if (config.supabase && config.supabase.enabled) {
+            supabaseUrl = config.supabase.url;
+            supabaseAnonKey = config.supabase.anonKey;
         }
 
-        // Fallback to environment variables if config is not available
-        const envUrl = import.meta.env.VITE_SUPABASE_URL;
-        const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        if (supabaseUrl && supabaseAnonKey &&
+            supabaseUrl !== 'https://your-project-id.supabase.co' &&
+            supabaseAnonKey !== 'your-anon-key-here') {
 
-        if (envUrl && envKey) {
-            supabase = createClient(envUrl, envKey, {
+            supabase = createClient(supabaseUrl, supabaseAnonKey, {
                 auth: {
                     autoRefreshToken: true,
                     persistSession: true,
                     detectSessionInUrl: true
                 }
             });
-            console.log('Supabase initialized with environment variables');
+
+            console.log('Supabase initialized with app-config.json:', supabaseUrl);
             return supabase;
+        } else {
+            console.warn('Supabase configuration not properly set in app-config.json');
         }
-
-        console.error('Supabase configuration not found in app-config.json or environment variables');
-        return null;
-
-    } catch (error) {
-        console.error('Failed to initialize Supabase:', error);
-        return null;
+    } else {
+        console.warn('Supabase configuration not found in app-config.json');
     }
+
+    // Fallback to environment variables if config is not available
+    const envUrl = import.meta.env.VITE_SUPABASE_URL;
+    const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    if (envUrl && envKey) {
+        supabase = createClient(envUrl, envKey, {
+            auth: {
+                autoRefreshToken: true,
+                persistSession: true,
+                detectSessionInUrl: true
+            }
+        });
+        console.log('Supabase initialized with environment variables');
+        return supabase;
+    }
+
+    console.error('Supabase configuration not found in app-config.json or environment variables');
+    return null;
+
+} catch (error) {
+    console.error('Failed to initialize Supabase:', error);
+    return null;
+}
 };
 
 // Get or initialize Supabase client
